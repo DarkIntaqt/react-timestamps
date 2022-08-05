@@ -3,7 +3,7 @@
 This is a lightweight JS Module converting any unix timestamp (seconds or milliseconds) or a date string into a beautified string. 
 
 ```
-npm install react-timestamps
+npm install DarkIntaqt/react-timestamps
 ```
 
 You can use it as the following:
