@@ -63,9 +63,9 @@ function formatDate(timestamp, type) {
 
   const count = Math.floor(difference / _config.timeStampNames[timeIndex][0]);
 
-  if (isNaN(count) && difference <= 15) {
+  if (isNaN(count) && difference <= 1) {
     dateString += "just now";
-  } else if (isNaN(count) && difference > 15) {
+  } else if (isNaN(count) && difference > 1) {
     dateString = "";
     console.warn(_config.errorMessages[2] + timestamp);
   } else {
