@@ -3,7 +3,7 @@ export function formatUnixTimestamp(
   locale: string = "en-US",
   relative: boolean = true,
 ): string {
-  const date = new Date(timestamp * 1000);
+  const date = new Date(timestamp);
 
   if (!relative) {
     return date.toLocaleString(locale);
@@ -13,13 +13,14 @@ export function formatUnixTimestamp(
   const targetMs = date.getTime();
   const diffMs = targetMs - nowMs;
   const absMs = Math.abs(diffMs);
-  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
 
   // 1 minute is "now"
   if (absMs < 60_000) {
+    const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
     return rtf.format(0, "minute");
   }
 
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "always" });
   const minuteMs = 60_000;
   const hourMs = 60 * minuteMs;
   const dayMs = 24 * hourMs;
