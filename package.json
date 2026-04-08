@@ -1,29 +1,40 @@
 {
   "name": "react-timestamps",
-  "version": "1.0.0",
-  "description": "An easy way to add formatted dates using a react module",
-  "main": "dist/index.js",
+  "version": "0.0.1",
+  "description": "An easy way to add formatted dates using a React module",
+  "type": "module",
+  "main": "dist/index.cjs",
   "module": "dist/index.js",
-  "scripts": {
-    "build": "rm -rf dist && NODE_ENV=production babel lib --out-dir dist --copy-files"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
-  },
-  "dependencies": {},
-  "author": "DarkIntaqt",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "@babel/preset-react": "^7.18.6"
-  },
+  "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DarkIntaqt/react-timestamps.git"
+  },
+  "author": "DarkIntaqt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DarkIntaqt/react-timestamps/issues"
+  },
+  "homepage": "https://github.com/DarkIntaqt/react-timestamps#readme",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2"
   }
 }
